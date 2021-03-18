@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Message } from '../message';
 import { Text } from '../text';
 import { DaButtonService } from './da-button.service';
 @Component({
@@ -10,15 +11,20 @@ import { DaButtonService } from './da-button.service';
 })
 
 export class DaButtonComponent implements OnInit {
-
-  text: Text = {
-    text: "Hello little motherfucker",
-  };
-
+  messagen = "";
+  emotion:any = [];
   constructor( private dService: DaButtonService) {}
 
   ngOnInit(): void {
-    this.dService.getPais();
+    
   }
 
+  addMessage(){
+    console.log(this.messagen);
+    this.dService.addText({text: this.messagen}).subscribe(res => {
+      this.emotion = res;
+      console.log(this.emotion);
+      console.log(res);
+    })
+  }
 }

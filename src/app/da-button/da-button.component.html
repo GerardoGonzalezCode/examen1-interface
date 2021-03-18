@@ -1,5 +1,17 @@
 <div class="textCold">
-    <label for="text">Text: </label>
-    <input id="text" [(ngModel)]="text.text" placeholder="Insert a Phrase">
+    <form name="form" action="" method="get">
+        <label for="text">Text: </label>
+        <input type="text" id="textMessage" name="textMessage" placeholder="Insert a Phrase" [(ngModel)]="messagen">
+    </form>
 </div>
-<h2>The emotion on this Phrase is: {{text.text | titlecase}}</h2>
+<div class="textRes">
+    <h3>The emotions in this messages are: </h3>
+    <tr *ngFor="let item of emotion">
+        <td>{{item.tone_id}}&nbsp;</td> 
+        <td>{{item.score}}</td>
+    </tr>
+</div>
+<br>
+<div>
+    <button class="btn btn-success" (click)="addMessage()">Generic Run Button</button>
+</div>

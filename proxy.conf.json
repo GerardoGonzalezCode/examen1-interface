@@ -1,0 +1,7 @@
+{
+    "/api/*":{
+        "target":"https://tone-analyzer-19-ep1.mybluemix.net",
+        "secure": false,
+        "logLevel":"debug"
+    }
+}
